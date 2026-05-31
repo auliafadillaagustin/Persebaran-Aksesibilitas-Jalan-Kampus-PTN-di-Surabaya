@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebGIS Persebaran PTN Surabaya</title>
+
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <section class="hero-panel">
+        <div class="brand-row">
+          <div class="logo">GIS</div>
+          <div>
+            <p class="eyebrow">WebGIS Surabaya</p>
+            <h1>Persebaran Aksesibilitas Jalan Kampus PTN</h1>
+          </div>
+        </div>
+        <p class="hero-text">
+          Visualisasi lokasi kampus negeri dan jaringan aksesibilitas jalan di Kota Surabaya.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <p class="panel-kicker">Filter Data</p>
+            <h2>Cari Kampus PTN</h2>
+          </div>
+          <span class="pill">9 titik</span>
+        </div>
+
+        <label for="kecamatanSelect">Nama kampus</label>
+        <select id="kecamatanSelect">
+          <option value="all">Semua Kampus PTN</option>
+        </select>
+
+        <button id="resetFilterBtn" type="button">Reset Fokus Peta</button>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title-row">
+          <div>
+            <p class="panel-kicker">Informasi Layer</p>
+            <h2>Legenda Peta</h2>
+          </div>
+        </div>
+
+        <div class="legend-card">
+          <div class="legend-symbol campus-dot"></div>
+          <div>
+            <h3>Lokasi Kampus PTN</h3>
+            <p>Titik sebaran kampus negeri di Surabaya.</p>
+          </div>
+        </div>
+
+        <div class="legend-card">
+          <div class="legend-symbol road-line"></div>
+          <div>
+            <h3>Aksesibilitas Jalan</h3>
+            <p>Jaringan jalan dalam jangkauan akses kampus.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="note-panel">
+        <strong>Tips:</strong> pilih salah satu kampus untuk zoom otomatis, lalu klik titik kampus untuk melihat detailnya.
+      </section>
+
+      <div class="group-credit" aria-label="Identitas Kelompok">
+        <div class="group-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="20" r="9" stroke="currentColor" stroke-width="4"/>
+            <circle cx="17" cy="25" r="7" stroke="currentColor" stroke-width="3.5"/>
+            <circle cx="47" cy="25" r="7" stroke="currentColor" stroke-width="3.5"/>
+            <path d="M18 52c0-10 6-17 14-17s14 7 14 17" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M4 50c0-8 5-13 12-13 3 0 6 1 8 3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M60 50c0-8-5-13-12-13-3 0-6 1-8 3" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="group-text">
+          <span>Kelompok 3</span>
+          <small>1012 &middot; 1016 &middot; 1077</small>
+          <small>1081 &middot; 1085 &middot; 1094</small>
+        </div>
+      </div>
+    </aside>
+
+    <section class="map-area">
+      <div class="map-topbar">
+        <div>
+          <p>Peta Interaktif</p>
+          <h2>PTN Surabaya & Aksesibilitas Jalan</h2>
+        </div>
+        <div class="map-badges">
+          <span>MapLibre GL</span>
+          <span>GeoJSON</span>
+        </div>
+      </div>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
